@@ -45,7 +45,6 @@ rollBtn.addEventListener('click', function () {
 })
 
 function double() {
-    let splitrandomNr = Math.floor(randomNumber / 2)
 
     if (randomNumber >= 15 && randomNumber < 21) {
         splitBtnBox.style.display = 'block'
@@ -76,6 +75,7 @@ function double() {
 
             noSplitBtn.addEventListener('click', function () {
                 message.textContent = 'Player 1 its your turn'
+                splitBtnBox.style.display = 'none'
             })
 
         }
