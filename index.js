@@ -1,23 +1,23 @@
 const message = document.getElementById("message")
+const playerBetBox = document.getElementById('player-bet-box')
+const inputBet = document.getElementById('player-bet-box')
+const validateBetBtn = document.getElementById('validate-bet-btn')
 const rollBtn = document.getElementById("rollBtn")
 const resetBtn = document.getElementById("resetBtn")
-const splitBtnBox = document.getElementsByClassName('split-btn-box')[0]
-const yesSplitBtn = document.getElementById('yes-split-btn')
-const noSplitBtn = document.getElementById('no-split-btn')
 
 const player1 = {
     player1Score: 0,
     player1Dice: document.getElementById("player1Dice"),
+    palyer1MoneyBet: document.getElementById('palyer1MoneyBet'),
     player1Scoreboard: document.getElementById("player1Scoreboard"),
-    player1SplitedDice: document.getElementById('player1SplitedDice'),
     player1Turn: true
 }
 
 const player2 = {
     player2Score: 0,
     player2Dice: document.getElementById("player2Dice"),
+    palyer2MoneyBet: document.getElementById('palyer2MoneyBet'),
     player2Scoreboard: document.getElementById("player2Scoreboard"),
-    player2SplitedDice: document.getElementById('player2SplitedDice'),
     player2Turn: false
 }
 // console.log(player1.player1Dice)

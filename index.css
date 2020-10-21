@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html,
 body {
     --color-1: #a8e6cf;
@@ -5,6 +11,7 @@ body {
     --color-3: #ffd3b6;
     --color-4: #ffaaa5;
     --color-5: #ff8b94;
+    --color-6: #616363;
     margin: 0;
     padding: 0;
 }
@@ -18,7 +25,7 @@ body {
 }
 
 .container {
-    width: 400px;
+    width: 600px;
     text-align: center;
     margin: 0 auto;
     background-color: white;
@@ -26,26 +33,83 @@ body {
     padding: 50px;
 }
 
-.players {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+#player-bet-box {
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(185, 185, 185);
 }
 
-/* #player1 {
-    display: grid;
-} */
+#input-bet,
+#validate-bet-btn {
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size: 18px;
+}
 
-.dice {
+#input-bet {
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 1px 1px 3px #000;
+}
+
+#validate-bet-btn {
+    background-color: var(--color-1);
+}
+
+#validate-bet-btn:hover, 
+#validate-bet-btn:focus {
+    background-color: var(--color-2);
+}
+
+/* game main board */
+.players {
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(185, 185, 185);
+}
+
+#player1Scoreboard,
+#player2Scoreboard {
+    margin: 20px 0;
+    padding: 5px 10px;
+    border: 2px solid var(--color-6);
+    border-radius: 3px;
+}
+
+.dice,
+.bets, 
+.palyersTotalMoney {
     border-radius: 10px;
-    width: 100px;
-    height: 100px;
-    background-color: var(--color-3);
-    margin: 25px auto;
-    font-size: 80px;
+    width: 100%;
+    padding: 10px;
     display: block;
     align-items: center;
     justify-content: center;
+}
+
+.dice {
+    background-color: var(--color-3);
+    font-size: 80px;
+    margin: 25px auto;
+}
+
+.bets {
+    font-size: 80px;
+    margin: 25px auto;
+    border: 2px solid var(--color-3);
+}
+
+.players-total-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.palyersTotalMoney {
+    margin: 15px auto;
+    font-size: 40px;
+    border: 2px solid var(--color-1);
 }
 
 button {
@@ -70,39 +134,10 @@ button:focus {
     outline: none;
 }
 
-#player1SplitedDice,
-#player2SplitedDice,
 #resetBtn {
     display: none;
 }
 
-/* #player1SplitedDice,
-#player2SplitedDice {
-    margin: 20px auto;
-} */
-
 .active {
-    box-shadow: -2px 6px 18px 3px rgba(0, 0, 0, 0.75);
-}
-
-.split-btn-box {
-    display: none;
-}
-
-#yes-split-btn {
-    background-color: var(--color-1);
-}
-
-#yes-split-btn:hover,
-#yes-split-btn:focus {
-    background-color: var(--color-2);
-}
-
-#no-split-btn {
-    background-color: var(--color-5);
-}
-
-#no-split-btn:hover,
-#no-split-btn:focus {
-    background-color: var(--color-4);
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.75);
 }

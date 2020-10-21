@@ -8,26 +8,50 @@
 <body>
     <div class="container">
         <h1 id="message">Player 1 Turn</h1>
-        <div class="split-btn-box">
-            <h3>Do you want to split?</h3>
-            <button id="yes-split-btn">YES</button>
-            <button id="no-split-btn">NO</button>
+
+        <div class="main">
+            <!-- allow each player to bet -->
+            <div id="player-bet-box">
+                <h3>How mutch do you want to bet?</h3>
+                <div class="player-input">
+                    <input type="text" id="input-bet" placeholder="*Minimum bet $5">
+                    <button id="validate-bet-btn">DONE</button>
+                </div>
+            </div>
+            <!-- display the dice values and total score of each player -->
+            <div class="players">
+                <div id="player1">
+                    <h2>SCORE:
+                        <span id="player1Scoreboard">0</span>
+                    </h2>
+                    <div id="player1Dice" class="dice active">-</div>
+                </div>
+    
+                <div id="total-bet-box">
+                    <h2>TOTAL BET:</h2>
+                    <span class="bets">$</span>
+                </div>
+    
+                <div id="player2">
+                    <h2>SCORE:
+                        <span id="player2Scoreboard">0</span>
+                    </h2>
+                    <div id="player2Dice" class="dice">-</div>
+                </div>
+            </div>
+
         </div>
-        <div class="players">
-            <div id="player1">
-                <h1>Score:
-                    <span id="player1Scoreboard">0</span>
-                </h1>
-                <div id="player1Dice" class="dice active">-</div>
-                <div id="player1SplitedDice" class="dice active">-</div>
+        <!-- display the players total money -->
+        <div class="players-total-box">
+            <div class="palyer1Total">
+                <h3>Player 1 Total:</h3>
+                <span class="palyersTotalMoney">$</span>
             </div>
-            <div id="player2">
-                <h1>Score:
-                    <span id="player2Scoreboard">0</span>
-                </h1>
-                <div id="player2Dice" class="dice">-</div>
-                <div id="player2SplitedDice" class="dice">-</div>
-            </div>
+
+            <div class="palyer2Total">
+                <h3>Player 2 Total:</h3>
+                <span class="palyersTotalMoney">$</span>
+            </div>               
         </div>
 
         <button id="rollBtn">Roll Dice 🎲</button>
