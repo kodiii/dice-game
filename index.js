@@ -45,3 +45,8 @@ rollBtn.addEventListener('click', function () {
     // console.log(player2.player2Dice)
 })
 
+let playerInputBet = parseInt(inputBet.value)
+
+validateBetBtn.addEventListener('click', function () {
+    console.log(playerInputBet)
+})
