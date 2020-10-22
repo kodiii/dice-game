@@ -33,31 +33,31 @@ body {
     padding: 50px;
 }
 
-#player-bet-box {
+#playerBetBox {
     padding: 15px 0;
     border-bottom: 1px solid rgb(185, 185, 185);
 }
 
-#input-bet,
-#validate-bet-btn {
+#inputBet,
+#validateBetBtn {
     padding: 12px 20px;
     margin: 8px 0;
     font-size: 18px;
 }
 
-#input-bet {
+#inputBet {
     width: 50%;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: inset 1px 1px 3px #000;
 }
 
-#validate-bet-btn {
+#validateBetBtn {
     background-color: var(--color-1);
 }
 
-#validate-bet-btn:hover, 
-#validate-bet-btn:focus {
+#validateBetBtn:hover, 
+#validateBetBtn:focus {
     background-color: var(--color-2);
 }
 
@@ -78,16 +78,6 @@ body {
     border-radius: 3px;
 }
 
-.dice,
-.bets, 
-.palyersTotalMoney {
-    border-radius: 10px;
-    width: 100%;
-    padding: 10px;
-    display: block;
-    align-items: center;
-    justify-content: center;
-}
 
 .dice {
     background-color: var(--color-3);
@@ -95,15 +85,26 @@ body {
     margin: 25px auto;
 }
 
-.bets {
+.totalBets {
     font-size: 80px;
     margin: 25px auto;
     border: 2px solid var(--color-3);
 }
 
-.players-total-box {
+.playersTotalBox {
     display: flex;
     justify-content: space-between;
+}
+
+.dice,
+.totalBets,
+.palyersTotalMoney {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    display: block;
+    align-items: center;
+    justify-content: center;
 }
 
 .palyersTotalMoney {
