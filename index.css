@@ -61,6 +61,10 @@ body {
     background-color: var(--color-2);
 }
 
+#validateBetBtn:disabled {
+    background-color: lightgrey;
+}
+
 /* game main board */
 .players {
     width: 100%;
@@ -88,7 +92,7 @@ body {
 .totalBets {
     font-size: 80px;
     margin: 25px auto;
-    border: 2px solid var(--color-3);
+    border: 2px solid var(--color-5);
 }
 
 .playersTotalBox {
@@ -98,7 +102,7 @@ body {
 
 .dice,
 .totalBets,
-.palyersTotalMoney {
+.playersTotalMoney {
     border-radius: 10px;
     width: 100%;
     padding: 10px;
@@ -107,7 +111,7 @@ body {
     justify-content: center;
 }
 
-.palyersTotalMoney {
+.playersTotalMoney {
     margin: 15px auto;
     font-size: 40px;
     border: 2px solid var(--color-1);
