@@ -15,7 +15,7 @@
                 <h3>How mutch do you want to bet?</h3>
                 <div class="playerInput">
                     <input type="text" id="inputBet" placeholder="*Minimum bet $5">
-                    <button id="validateBetBtn">DONE</button>
+                    <button id="addBetBtn">DONE</button>
                 </div>
             </div>
             <!-- display the dice values and total score of each player -->
@@ -43,14 +43,20 @@
         </div>
         <!-- display the players total money -->
         <div class="playersTotalBox">
-            <div class="palyer1Total">
+            <div>
                 <h3>Player 1 Total:</h3>
-                <span class="player1Total playersTotalMoney">100</span>
+                <div class="player1TotalBox">
+                    <span class="currency">$</span>
+                    <span class="player1Total">100</span>
+                </div>
             </div>
 
-            <div class="palyer2Total">
+            <div>
                 <h3>Player 2 Total:</h3>
-                <span class="player2Total playersTotalMoney">100</span>
+                <div class="player2TotalBox">                 
+                    <span class="currency">$</span>
+                    <span class="player2Total">100</span>
+                </div>
             </div>               
         </div>
 

@@ -39,7 +39,7 @@ body {
 }
 
 #inputBet,
-#validateBetBtn {
+#addBetBtn {
     padding: 12px 20px;
     margin: 8px 0;
     font-size: 18px;
@@ -52,16 +52,16 @@ body {
     box-shadow: inset 1px 1px 3px #000;
 }
 
-#validateBetBtn {
+#addBetBtn {
     background-color: var(--color-1);
 }
 
-#validateBetBtn:hover, 
-#validateBetBtn:focus {
+#addBetBtn:hover, 
+#addBetBtn:focus {
     background-color: var(--color-2);
 }
 
-#validateBetBtn:disabled {
+#addBetBtn:disabled {
     background-color: lightgrey;
 }
 
@@ -102,7 +102,8 @@ body {
 
 .dice,
 .totalBets,
-.playersTotalMoney {
+.player1TotalBox,
+.player2TotalBox {
     border-radius: 10px;
     width: 100%;
     padding: 10px;
@@ -111,7 +112,8 @@ body {
     justify-content: center;
 }
 
-.playersTotalMoney {
+.player1TotalBox,
+.player2TotalBox {
     margin: 15px auto;
     font-size: 40px;
     border: 2px solid var(--color-1);
