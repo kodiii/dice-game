@@ -133,6 +133,10 @@ button {
     background-color: var(--color-5);
 }
 
+#rollBtn:disabled {
+    background-color: lightgrey;
+}
+
 #resetBtn {
     background-color: var(--color-4);
 }
