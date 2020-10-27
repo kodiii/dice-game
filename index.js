@@ -16,7 +16,7 @@ const player1 = {
     player1Scoreboard: document.getElementById("player1Scoreboard"),
     player1TotalBox: document.querySelector('.player1TotalBox'),
     player1Total: document.querySelector('.player1total'),
-    player1Turn: true
+    player1Turn: 0
 }
 
 const player2 = {
@@ -25,7 +25,7 @@ const player2 = {
     player2Scoreboard: document.getElementById("player2Scoreboard"),
     player2TotalBox: document.querySelector('.player2TotalBox'),
     player2Total: document.querySelector('.player2total'),
-    player2Turn: false
+    player2Turn: 0
 }
 
 let player1Money = 100
@@ -33,38 +33,71 @@ let player2Money = 100
 player1.player1Total.textContent = player1Money
 player2.player2Total.textContent = player2Money
 
-// add bets from players
-// function addBet() {
-//     rollBtn.disabled = true
+//  add bets from players
+function addBet() {
+    rollBtn.disabled = true
+    player1.player1Dice.classList.remove('active')
+    player2.player2Dice.classList.remove('active')
 
-//     addBetBtn.addEventListener('click', function () {
-//         if (player1.player1Turn) {
-//             player1Bet = parseInt(inputBet.value)
-//             player1Money -= player1Bet
-//             player1.player1Total.textContent = player1Money
-//             inputBet.value = ''
-//             message.textContent = 'Player 2 insert your BET.'
-//         } else {
-//             player2Bet = parseInt(inputBet.value)
-//             player2Money -= player2Bet
-//             player2.player2Total.textContent = player2Money
-//             inputBet.value = ''
-//             message.textContent = 'Player 1 insert your BET.'
-//             message.textContent = 'Roll the DICE'
-//             inputBet.disabled = true
-//             addBetBtn.disabled = true
-//             rollBtn.disabled = false
-//         }
-//         player1.player1Turn = !player1.player1Turn
-//         allBets = player1Bet + player2Bet
-//         totalBets.textContent = allBets
-//     })
-// }
-// addBet()
+    let sortRndPlayer = Math.floor(Math.random() * 2) + 1
+    console.log(sortRndPlayer)
+
+    if (sortRndPlayer === 1) {
+        message.textContent = 'Player 1 its your turn. Insert your BET'
+        player1.player1Turn = true
+        player1AddBet()
+    } else {
+        message.textContent = 'Player 2 its your turn. Insert your BET'
+        player2.player2Turn = true
+        player2AddBet()
+    }
+
+    // addBetBtn.addEventListener('click', function () {
+    //     if (player1.player1Turn) {
+
+    //     } else if (player2.player2Turn) {
+
+    //     }
+    //     player1.player1Turn = !player1.player1Turn
+
+    //     message.textContent = 'Roll the DICE'
+    //     inputBet.disabled = true
+    //     addBetBtn.disabled = true
+    //     rollBtn.disabled = false
+    //     allBets = player1Bet + player2Bet
+    //     totalBets.textContent = parseInt(allBets)
+
+    //     console.log(typeof (totalBets.textContent = parseInt(allBets)))
+    // })
+}
+addBet()
+
+function player1AddBet() {
+    addBetBtn.addEventListener('click', function () {
+        player1Bet = parseInt(inputBet.value)
+        console.log(parseInt(inputBet.value))
+        player1Money -= player1Bet
+        player1.player1Total.textContent = player1Money
+        inputBet.value = ''
+        message.textContent = 'Player 2 its your turn'
+    })
+}
+
+function player2AddBet() {
+    addBetBtn.addEventListener('click', function () {
+        player2Bet = parseInt(inputBet.value)
+        console.log(parseInt(inputBet.value))
+        player2Money -= player2Bet
+        player2.player2Total.textContent = player2Money
+        inputBet.value = ''
+        message.textContent = 'Player 1 its your turn'
+    })
+}
+
 
 function playGame() {
+
     rollBtn.addEventListener('click', function () {
-        // inputBet.disabled = true
         const randomNumber = Math.floor(Math.random() * 22) + 1
 
         if (player1.player1Turn) {
@@ -89,24 +122,24 @@ function playGame() {
 playGame()
 
 function gameCases() {
+
     if (player1Score === 21) {
         message.textContent = 'Player 1 you WIN'
         player1.player1Total.textContent = player1Money + allBets
-        // resetGame()
+        resetGame()
     } else if (player2Score === 21) {
         message.textContent = 'Player 2 you WIN'
         player2.player2Total.textContent = player2Money + allBets
-        // resetGame()
+        resetGame()
     } else if (player1Score > 21) {
         message.textContent = 'Sorry Player 1 you LOOSE'
         player2.player2Total.textContent = player2Money + allBets
-        // resetGame()
+        resetGame()
     } else if (player2Score > 21) {
         message.textContent = 'Sorry Player 2 you LOOSE'
         player1.player1Total.textContent = player1Money + allBets
-        // resetGame()
+        resetGame()
     }
-    resetGame()
 }
 
 function resetGame() {
@@ -115,13 +148,13 @@ function resetGame() {
 
     resetBtn.addEventListener('click', function () {
         allBets = 0
-        totalBets.textContent = 0
+        totalBets.textContent = '-'
         player1Score = 0
         player2Score = 0
         player1Bet = 0
         player2Bet = 0
-        player1.player1Scoreboard.textContent = 0
-        player2.player2Scoreboard.textContent = 0
+        player1.player1Scoreboard.textContent = player1Bet
+        player2.player2Scoreboard.textContent = player2Bet
         player1.player1Dice.textContent = '-'
         player2.player2Dice.textContent = '-'
         inputBet.disabled = false
@@ -129,49 +162,29 @@ function resetGame() {
         rollBtn.style.display = 'block'
         rollBtn.disabled = true
         resetBtn.style.display = 'none'
+
         console.log(player1Bet)
         console.log(player2Bet)
+        console.log(player1.player1Scoreboard.textContent)
+        console.log(player2.player2Scoreboard.textContent)
+        console.log(inputBet.value)
     })
 }
-randomPlayer()
 
-function randomPlayer() {
-    rollBtn.disabled = true
+// function randomPlayer() {
+//     let sortRndPlayer = Math.floor(Math.random() * 2) + 1
+//     console.log(sortRndPlayer)
+//     rollBtn.disabled = true
 
-    let sortRndPlayer = Math.floor(Math.random() * 2) + 1
-    console.log(sortRndPlayer)
+//     if (sortRndPlayer === 1) {
+//         message.textContent = 'Player 1 its your turn.'
 
-    if (sortRndPlayer === 1) {
-        message.textContent = 'Player 1 its your turn.'
-    } else {
-        message.textContent = 'Player 2 its your turn.'
-    }
+//     } else if (sortRndPlayer === 2) {
+//         message.textContent = 'Player 2 its your turn.'
 
-    addBetBtn.addEventListener('click', function () {
-        if (sortRndPlayer === 1) {
-            player1.player1Turn = true
-            player1Bet = parseInt(inputBet.value)
-            player1Money -= player1Bet
-            player1.player1Total.textContent = player1Money
-            inputBet.value = ''
-            message.textContent = 'Player 2 place your BET.'
-        } else {
-            player1.player1Turn = false
-            player2.player2Turn = true
-            player2Bet = parseInt(inputBet.value)
-            player2Money -= player2Bet
-            player2.player2Total.textContent = player2Money
-            inputBet.value = ''
-            message.textContent = 'Player 1 place your BET.'
-            message.textContent = 'Roll the DICE'
-            inputBet.disabled = true
-            addBetBtn.disabled = true
-            rollBtn.disabled = false
-        }
-        player1.player1Turn = !player1.player1Turn
-        allBets = player1Bet + player2Bet
-        totalBets.textContent = allBets
-    })
-
-    // player2.player2Turn = !player2.player2Turn
-}
+//         })
+//     }
+//     allBets = player1Bet + player2Bet
+//     totalBets.textContent = allBets
+// }
+// randomPlayer()
